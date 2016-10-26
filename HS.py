@@ -18,7 +18,7 @@ def GetStreet(Add,SaveLoc,Head):
   base = "https://maps.googleapis.com/maps/api/streetview?size=1200x800&location="
   face = "&heading="+str(Head)
   MyUrl = base + Add + face + key
-  fi = Add + str(Head) + ".jpg"
+  fi = Add + " " + str(Head) + ".jpg"
   urllib.urlretrieve(MyUrl, os.path.join(SaveLoc,fi))
 
 #Numbers for range of street addresses on 6th street from Main St to LA River
@@ -26,7 +26,7 @@ def GetStreet(Add,SaveLoc,Head):
 e_u = 1599
       
 for i in range(100,e_u,15):
-    j = str(i) + " E 6th Street, Los Angeles, CA"
+    j = str(i) + " East 6th Street, Los Angeles, CA"
     GetStreet(Add=j,SaveLoc=myloc,Head=0)
     GetStreet(Add=j,SaveLoc=myloc,Head=180)
     
