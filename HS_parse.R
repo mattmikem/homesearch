@@ -15,6 +15,8 @@ library(taRifx)
 
 #Test on LA addresses
 
+setwd('/Users/matthewmiller/Dropbox/Research/Urban/Projects/HomeSearch/Working')
+
 ca_path <- "/Users/matthewmiller/Dropbox/Data/OpenAddresses/openaddr-collected-us_west/us/ca"
 
 la_add <- read.csv(paste(ca_path, "los_angeles.csv", sep="/"), header=TRUE, sep=",");
@@ -27,7 +29,7 @@ la_add$NUM1 <- destring(la_add$NUM1)
 
 streets <- c('East 6th Street', 'East 3rd Street', 'South Central Avenue', 'South Spring Street')
 
-la_test <- la_add[la_add$STREET %in% streets & la_add$CITY == 'Los Angeles' & la_add$NUM1<1400,]
+la_test <- la_add[la_add$STREET %in% streets & la_add$CITY == 'Los Angeles' & la_add$NUM1<1400 & la_add$NUM2 == "",]
 
 ##Map Addreses selected
 
@@ -49,3 +51,9 @@ city_map <- qmap(c_point, zoom = 14)
 
 city_map + geom_point(aes(x = la_test$LON, y = la_test$LAT, color = la_test$STREET), data = la_test)
 
+##To keep
+
+la_test <- la_test[,c("LAT", "LON", "STREET", "CITY", "POSTCODE", "NUM1")]
+la_test <- la_test[order(la_test$STREET, la_test$NUM1),]
+
+write.csv(la_test, 'la_test.csv')
