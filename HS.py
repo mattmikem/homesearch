@@ -87,3 +87,9 @@ for j in add_feed:
 
 #for i in Tests:
   
+#HomeSearch notes
+
+#- Prop HHH on docket in LA for raising $1.2 billion to create 10,000 units of housing for the homeless
+#- Focus on women and children affected by homelessness.
+#- Concern: they say homelessness is increasing (11%), is this due to more people in LA actually losing homes, or more homeless people seeking out LA as a place where homelessness is most tolerable (given the existing level of services). 
+#- Concern: Where will these units be built? 
